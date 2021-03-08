@@ -3,7 +3,7 @@
  //01 02 jQuery element
  var saveBtn= $('.saveBtn');
  var textarea= $('.description');
- var timeBlock= $('.time-block');
+ var timeBlock= $('.time-block').children();
 
  // add a click handler to each saveButton using .on() method
  //03 04 click event- http://api.jquery.com/on/
@@ -23,18 +23,24 @@
   // use moment library to get the current
   // http://momentjs.com/docs/#/get-set/hour
   var current= moment();
-    var currentHour= current.format("HH");
+  var currentHour= current.hour();
+  console.log(currentHour);
+
   // get a reference to all timeblocks
  for(var i=0; i<8; i++){
-    var dataHour= timeBlock[i].data('hour');
-    if (currentHour < dataHour){
-      dataHour.addClass('future');
-    }else if(currentHour=== dataHour){
-      dataHour.addClass('present');
+    var data=$('.time-block').children().eq(i);
+    var hour= data.children().eq(0).text();
+    console.log(hour)
+   
+
+    if (currentHour < hour){
+     data.addClass('future'); //给hour增加一个新的class
+    }else if(currentHour == hour){
+     data.addClass('present');
     }else{
-      dataHour.addClass('past');
+     data.addClass('past');
     }
- }
+  }
   // loop through the timeblocks
   //week3
 
