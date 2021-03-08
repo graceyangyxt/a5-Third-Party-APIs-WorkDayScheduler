@@ -3,34 +3,38 @@
  //01 02 jQuery element
  var saveBtn= $('.saveBtn');
  var textarea= $('.description');
+ 
 
  // add a click handler to each saveButton using .on() method
  //03 04 click event- http://api.jquery.com/on/
-saveBtn.on('click',function(){
-  
-  var todoTask=textarea.value.trim();
-
-   localStorage.setItem("todoTask",todoTask);
-});
 
  // traverse the DOM to get the values that we need to store in localstorage .parent() .sibling()
  //07 08 dom traversal- https://api.jquery.com/category/traversing/
  
  //setItems to localstorage
  //week 04
-
-
-
-
-
+ saveBtn.on('click',function(){
+  var todoTask = $(this).siblings(".description").val();
+  localStorage.setItem("todoTask",todoTask);
+});
 
 
 //handle color coding
   // use moment library to get the current
   // http://momentjs.com/docs/#/get-set/hour
-
+  var current= moment();
+    var currentHour= present.format("HH");
   // get a reference to all timeblocks
-
+ for(var i=0; i<8; i++){
+    var dataHour= timeblocks[i].data('hour');
+    if (currentHour < dataHour){
+      dataHour.addClass('future');
+    }else if(currentHour=== dataHour){
+      dataHour.addClass('present');
+    }else{
+      dataHour.addClass('past');
+    }
+ }
   // loop through the timeblocks
   //week3
 
@@ -41,6 +45,10 @@ saveBtn.on('click',function(){
 
      // adding or removing (or both) classes
     
+
+
+
+
 
 //get the data from localstorage and populate the timeblocks
  //geItem 
