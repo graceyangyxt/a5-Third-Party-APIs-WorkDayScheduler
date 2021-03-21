@@ -28,7 +28,7 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container ">
+    <div class="container col-lg-10 col-sm-10 m-0" style="align-content: center;">
       <!-- Timeblocks go here -->
       <!--
         create 8 timeblocks (div)
@@ -41,13 +41,13 @@
 
         add a data-hour attribute to the timeblock
       -->
-      <div class="row">
+ 
         <div class="time-block" >
 
-          <div id="nineAm" class="row">
-            <div class="hour" class="col-lg-1">9</div>
-            <textarea class="description" class="col-lg-10"></textarea>
-            <button class="saveBtn" class="col-lg-1">Save</button>
+          <div id="nineAm" class="row col-lg-12 col-sm-12">
+            <div class="hour col-lg-1">9</div>
+            <textarea class="description col-lg-10"></textarea>
+            <button class="saveBtn col-lg-1">Save</button>
           </div>
 
           <div id="tenAm" class="row">
@@ -99,7 +99,7 @@
           </div>
 
         </div>
-      </div>
+     
       <!--
         create a div(hour), textarea(description), button(save)
 
