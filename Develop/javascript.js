@@ -30,16 +30,15 @@
  for(var i=0; i<9; i++){
     var data=$('.time-block').children().eq(i);
     var hour= data.children().eq(0).text();
-    var textareaByHour=data.children().eq(1);
-    console.log(hour)
+    
    
 
     if (currentHour < hour){
-     textareaByHour.addClass('future'); //给hour增加一个新的class
+      textarea.addClass('future'); //给hour增加一个新的class
     }else if(currentHour == hour){
-      textareaByHour.addClass('present');
+      textarea.addClass('present');
     }else{
-      textareaByHour.addClass('past');
+      textarea.addClass('past');
     }
   }
   // loop through the timeblocks
