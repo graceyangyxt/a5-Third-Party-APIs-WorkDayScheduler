@@ -1,46 +1,36 @@
-// button
- //get a reference to all of the save buttons $('.saveBtn')
- //01 02 jQuery element
  var saveBtn= $('.saveBtn');
  var textarea= $('.description');
  var timeBlock= $('.time-block').children();
+ var currentDay= $('#currentDay');
 
- // add a click handler to each saveButton using .on() method
- //03 04 click event- http://api.jquery.com/on/
+var current= moment();
+var currentHour= current.hour();
+var date = current.format('dddd, MMMM DD YYYY'); 
 
- // traverse the DOM to get the values that we need to store in localstorage .parent() .sibling()
- //07 08 dom traversal- https://api.jquery.com/category/traversing/
- 
- //setItems to localstorage
- //week 04
- saveBtn.on('click',function(){
-  var todoTask = $(this).siblings(".description").val();
-  localStorage.setItem("todoTask",todoTask);
-});
-
-
-//handle color coding
-  // use moment library to get the current
-  // http://momentjs.com/docs/#/get-set/hour
-  var current= moment();
-  var currentHour= current.hour();
-  console.log(currentHour);
+currentDay.text(date);
 
   // get a reference to all timeblocks
- for(var i=0; i<9; i++){
+for(var i=0; i<9; i++){
     var data=$('.time-block').children().eq(i);
     var hour= data.children().eq(0).text();
-    
-   
 
     if (currentHour < hour){
-      textarea.addClass('future'); //给hour增加一个新的class
+      textarea.addClass('future'); 
     }else if(currentHour == hour){
       textarea.addClass('present');
     }else{
       textarea.addClass('past');
     }
   }
+
+
+  saveBtn.on('click',function(){
+    var todoTask = $(this).siblings(".description").val();
+    // var taskAtHour = $(this).siblings(".hour").val();
+    console.log("this is taskAtHour", taskAtHour)
+    localStorage.setItem("todoTask",todoTask);
+  });
+  
   // loop through the timeblocks
   //week3
 

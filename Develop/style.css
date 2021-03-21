@@ -23,6 +23,7 @@ textarea{
 
 .description{
   white-space: pre-wrap;
+  border:1px solid black;
   
 }
 
@@ -75,18 +76,10 @@ textarea{
 .hour {
    font-size: 20px;
 }
-
-@media screen and (min-width: 576px){
-  .time-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .eachHour{
-    display:flex;
-    flex-direction: row;
-  }
+.eachHour{
+  margin-bottom: 5px;
 }
+
 
 
 
