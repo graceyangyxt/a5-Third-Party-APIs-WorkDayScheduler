@@ -27,8 +27,10 @@ for(var i=0; i<9; i++){
   saveBtn.on('click',function(){
     var todoTask = $(this).siblings(".description").val();
     // var taskAtHour = $(this).siblings(".hour").val();
+    var taskAtHour = $(this).parent().attr("id");
     console.log("this is taskAtHour", taskAtHour)
-    localStorage.setItem("todoTask",todoTask);
+   
+    localStorage.setItem(JSON.stringify(taskAtHour),todoTask);
   });
   
   // loop through the timeblocks
